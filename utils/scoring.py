@@ -69,20 +69,29 @@ JOB_ROLES = {
 def _load_model():
     """
     Try to load the trained Random Forest model from the models/ directory.
-    The frontend runs from  <project_root>/resume frontend/
-    The model lives at      <project_root>/models/resume_model.pkl
+
+    Search order:
+      1. <repo_root>/models/resume_model.pkl   (inside the git repo — for deployment)
+      2. <project_root>/models/resume_model.pkl (one level up — for local dev)
+      3. CWD-relative models/resume_model.pkl
 
     Returns the loaded model object, or None if loading fails.
     """
     try:
         import joblib  # type: ignore
 
-        # Build an absolute path regardless of the CWD
         this_dir   = pathlib.Path(__file__).resolve().parent          # …/resume frontend/utils
-        model_path = this_dir.parent.parent / "models" / "resume_model.pkl"
+        repo_root  = this_dir.parent                                  # …/resume frontend/
 
+        # 1. Inside the repo (for deployment)
+        model_path = repo_root / "models" / "resume_model.pkl"
+
+        # 2. One level above repo (for local dev)
         if not model_path.exists():
-            # Second attempt: CWD-relative (works when launched from project root)
+            model_path = repo_root.parent / "models" / "resume_model.pkl"
+
+        # 3. CWD-relative fallback
+        if not model_path.exists():
             model_path = pathlib.Path("models") / "resume_model.pkl"
 
         if model_path.exists():
