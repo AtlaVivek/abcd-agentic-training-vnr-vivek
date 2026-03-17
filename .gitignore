@@ -30,10 +30,10 @@ desktop.ini
 # Test files
 test_*.py
 
-# Model files (too large for git)
-*.pkl
-*.h5
-*.pt
+# Model files (uncomment below if models are too large for git)
+# *.pkl
+# *.h5
+# *.pt
 
 # Misc
 *.log
