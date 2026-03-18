@@ -196,7 +196,6 @@ def apply_theme():
     /* Hide Streamlit menu */
     #MainMenu { visibility:hidden; }
     footer { visibility:hidden; }
-    header { visibility:hidden; }
 
     /* Scrollbar */
     ::-webkit-scrollbar { width: 6px; }
