@@ -19,9 +19,9 @@ def show():
     # Calculate averages from DB data
     if history:
         # DB uses "score" instead of "final_score", and "job_match_score" instead of "job_match_pct"
-        avg_score = round(sum(r.get("score", 0) for r in history) / len(history), 1)
-        high_pct  = round(len([r for r in history if r.get("score", 0) >= 7.5]) / len(history) * 100, 1)
-        avg_match = round(sum(r.get("job_match_score", 0) for r in history) / len(history), 1)
+        avg_score = round(sum((r.get("score") or 0) for r in history) / len(history), 1)
+        high_pct  = round(len([r for r in history if (r.get("score") or 0) >= 7.5]) / len(history) * 100, 1)
+        avg_match = round(sum((r.get("job_match_score") or 0) for r in history) / len(history), 1)
     else:
         avg_score, high_pct, avg_match = 0.0, 0.0, 0.0
 
@@ -38,7 +38,7 @@ def show():
 
     with col_left:
         st.markdown('<div class="section-header">Score Distribution</div>', unsafe_allow_html=True)
-        demo_scores = [r.get("score", 0) for r in history] if history else [
+        demo_scores = [(r.get("score") or 0) for r in history] if history else [
             random.uniform(2, 9) for _ in range(40)
         ]
         st.plotly_chart(score_distribution_chart(demo_scores), use_container_width=True, config={"displayModeBar": False})
