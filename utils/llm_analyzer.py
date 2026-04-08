@@ -25,7 +25,7 @@ def analyze_resume_context(resume_text: str, target_role: str) -> dict | None:
         print("No API key found")
         return None
         
-    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key={api_key}"
+    url = f"https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key={api_key}"
     
     prompt = f"""
     You are an expert Executive IT Recruiter evaluating a candidate for the role of '{target_role}'.
@@ -49,7 +49,7 @@ def analyze_resume_context(resume_text: str, target_role: str) -> dict | None:
     }
     
     try:
-        req = requests.post(url, json=payload, headers={"Content-Type": "application/json"})
+        req = requests.post(url, json=payload, headers={"Content-Type": "application/json"}, timeout=15)
         if req.status_code != 200:
             print(f"Gemini API Error: {req.text}")
             return None
