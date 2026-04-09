@@ -96,16 +96,16 @@ Follow these steps to run ResuMetrics locally:
 ## 9. Screenshots
 
 | Login Screen |
-| :---: | :---: |
+| :---: 
 | <img width="1918" height="1017" alt="image" src="https://github.com/user-attachments/assets/d5cd7675-6ed9-42da-a02c-47ea94cf5336" />
-| Main Dashboard Overview |
+| :---: | Main Dashboard Overview |
  | <img width="1918" height="1012" alt="image" src="https://github.com/user-attachments/assets/9e57f19e-4b35-414c-8417-35c8aabe30af" />
 |
 
 | Alignment Radar Chart |
 | :---: 
 | <img width="1918" height="1012" alt="image" src="https://github.com/user-attachments/assets/69842cd1-6437-4896-8983-ae2f28c60179" />
-| :---: || Risk Analysis View |
+| :---: | Risk Analysis View |
  |<img width="1918" height="1017" alt="image" src="https://github.com/user-attachments/assets/dc314ff4-6fce-4276-854f-04718c87445f" />
  |
 
