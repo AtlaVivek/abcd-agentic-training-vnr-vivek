@@ -52,7 +52,7 @@ Follow these steps to run ResuMetrics locally:
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/Varshith730/ResuMetrics.git
+    git clone https://github.com/AtlaVivek/abcd-agentic-training-vnr-vivek.git
     cd ResuMetrics
     ```
 
