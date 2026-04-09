@@ -20,12 +20,12 @@ st.set_page_config(
     initial_sidebar_state="expanded",
 )
 
-apply_theme()
-
 # ── Auth gate ──────────────────────────────────────────────────────────────
 if not st.session_state.get("authenticated", False):
     pg_login.show()
     st.stop()
+
+apply_theme()
 
 # ── Sidebar ────────────────────────────────────────────────────────────────
 role = st.session_state.get("role", "recruiter")

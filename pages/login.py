@@ -50,9 +50,16 @@ def show():
 
     html, body, [class*="css"] { font-family: 'Inter', sans-serif; }
 
-    .stApp {
-        background: linear-gradient(135deg, #0A2342 0%, #103361 40%, #1A4A8A 100%);
+    .stApp, .stApp > header, .main, [data-testid="stAppViewContainer"], [data-testid="stHeader"] {
+        background: linear-gradient(135deg, #1A73E8, #0D47A1) !important;
+        background-color: transparent !important;
         min-height: 100vh;
+    }
+    
+    /* Make block container transparent to not block background */
+    [data-testid="stAppViewBlockContainer"] {
+        background: transparent !important;
+        background-color: transparent !important;
     }
 
     /* Hide Streamlit chrome */
@@ -63,18 +70,19 @@ def show():
 
     /* Input fields */
     .stTextInput > div > div > input {
-        background: rgba(255,255,255,0.08) !important;
-        border: 1px solid rgba(255,255,255,0.18) !important;
+        background: #FFFFFF !important;
+        border: 1px solid #CBD5E1 !important;
         border-radius: 10px !important;
-        color: white !important;
+        color: #0A2342 !important;
         font-size: 14px !important;
         padding: 12px 16px !important;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05) !important;
     }
     .stTextInput > div > div > input:focus {
-        border-color: #4A9FF5 !important;
-        box-shadow: 0 0 0 3px rgba(74,159,245,0.25) !important;
+        border-color: #1A73E8 !important;
+        box-shadow: 0 0 0 3px rgba(26,115,232,0.15) !important;
     }
-    .stTextInput label { color: rgba(255,255,255,0.75) !important; font-size: 13px !important; }
+    .stTextInput label { color: #FFFFFF !important; font-size: 13px !important; font-weight: 600 !important; }
 
     /* Login button */
     .stButton button {
@@ -126,7 +134,7 @@ def show():
             <div style="font-size:24px;font-weight:800;color:#FFFFFF;letter-spacing:0.3px;">
                 ResuMetrics
             </div>
-            <div style="font-size:11px;color:#7096B8;text-transform:uppercase;
+            <div style="font-size:11px;color:#E2E8F0;text-transform:uppercase;
                         letter-spacing:1.5px;margin-top:4px;">
                 AI Recruitment Intelligence
             </div>
@@ -141,11 +149,11 @@ def show():
                     border:1px solid rgba(255,255,255,0.12);
                     border-radius:20px;
                     padding:36px 32px 28px;
-                    box-shadow:0 24px 64px rgba(0,0,0,0.3);">
+                    box-shadow: 0 8px 32px rgba(10,35,66,0.3);">
             <div style="font-size:20px;font-weight:700;color:#FFFFFF;margin-bottom:4px;">
                 Sign in to your account
             </div>
-            <div style="font-size:13px;color:#7096B8;margin-bottom:28px;">
+            <div style="font-size:13px;color:#E2E8F0;margin-bottom:28px;">
                 Enter your credentials to access the platform
             </div>
         """, unsafe_allow_html=True)

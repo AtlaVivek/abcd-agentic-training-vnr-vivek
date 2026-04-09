@@ -197,15 +197,24 @@ def apply_theme():
         border-radius: 8px;
     }
     .stSelectbox div[data-baseweb="select"] * {
-        color: white !important;
+        color: black !important;
     }
     
     /* Dropdown list popover */
     div[data-baseweb="popover"] {
-        background-color: #1A3A5C !important;
+        background-color: white !important;
     }
     div[data-baseweb="popover"], div[data-baseweb="popover"] *, ul[role="listbox"] li {
-        color: white !important;
+        color: black !important;
+    }
+
+    /* Placeholders and Inputs */
+    input::placeholder, textarea::placeholder {
+        color: black !important;
+        opacity: 1 !important;
+    }
+    input, textarea {
+        color: black !important;
     }
 
     /* Hide Streamlit menu */
